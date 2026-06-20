@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-PSDrive -PSProvider FileSystem | Select-Object Name, @{N='Used\\(GB\\)';E={[math]::Round\\($_.Used/1GB,2\\)}}, @{N='Free\\(GB\\)';E={[math]::Round\\($_.Free/1GB,2\\)}})",
+      "PowerShell(Write-Output \"=== Moving scaffold to target ===\"; $src = \"d:\\\\tmp\\\\nextscaffold\"; $dst = \"d:\\\\Study\\\\work\\\\New folder\"; Get-ChildItem -Force -Path $src | ForEach-Object { Move-Item -Force -Path $_.FullName -Destination $dst }; Write-Output \"Moved. Target now contains:\"; Get-ChildItem -Force $dst | Select-Object Name; Write-Output \"=== npm cache size ===\"; $c = \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\npm-cache\"; if \\(Test-Path $c\\) { \"{0:N2} GB\" -f \\(\\(Get-ChildItem -Recurse -Force $c -ErrorAction SilentlyContinue | Measure-Object Length -Sum\\).Sum/1GB\\) })",
+      "PowerShell(npm cache clean --force; Write-Output \"=== C: free after clean ===\"; Get-PSDrive C | Select-Object @{N='Free\\(GB\\)';E={[math]::Round\\($_.Free/1GB,2\\)}})",
+      "PowerShell(npm install)",
+      "PowerShell(npx --yes shadcn@latest init -d -y)",
+      "PowerShell(npm run build)",
+      "PowerShell(npm install motion)",
+      "WebSearch",
+      "WebFetch(domain:21st.dev)",
+      "PowerShell(npm view @21st-dev/magic version description 2>$null)",
+      "PowerShell(npm view @21st-dev/cli version description 2>$null)",
+      "PowerShell(claude mcp --help 2>$null)",
+      "WebFetch(domain:docs.21st.dev)",
+      "PowerShell(npm view @21st-dev/magic homepage repository.url bin 2>$null)",
+      "PowerShell(npm view @21st-dev/cli homepage repository.url bin 2>$null)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "PowerShell(claude mcp get magic)",
+      "PowerShell(claude mcp list 2>$null)",
+      "PowerShell($c = Get-Content -Raw \"C:\\\\Users\\\\HP\\\\.claude\\\\projects\\\\d--Study-work-New-folder\\\\40bca547-2506-43bb-9d0a-895405666291\\\\tool-results\\\\toolu_01TBNjFjDyuqHH1zFevJBx3x.txt\"; $i = $c.IndexOf\\('<script>'\\); if\\($i -lt 0\\){ $i = $c.IndexOf\\('component'\\) }; $c.Substring\\($i, [Math]::Min\\(9000, $c.Length - $i\\)\\))",
+      "PowerShell($c = Get-Content -Raw \"C:\\\\Users\\\\HP\\\\.claude\\\\projects\\\\d--Study-work-New-folder\\\\40bca547-2506-43bb-9d0a-895405666291\\\\tool-results\\\\toolu_01TBNjFjDyuqHH1zFevJBx3x.txt\"; $end = $c.IndexOf\\('componentDidMount'\\); $start = [Math]::Max\\(0, $end - 8200\\); $c.Substring\\($start, $end - $start\\))",
+      "PowerShell($c = Get-Content -Raw \"C:\\\\Users\\\\HP\\\\.claude\\\\projects\\\\d--Study-work-New-folder\\\\40bca547-2506-43bb-9d0a-895405666291\\\\tool-results\\\\toolu_01TBNjFjDyuqHH1zFevJBx3x.txt\"; $end = $c.IndexOf\\('GET IN TOUCH'\\); $start = [Math]::Max\\(0, $end - 2400\\); $c.Substring\\($start, $end - $start\\))",
+      "PowerShell(Write-Output \"=== git identity ===\"; $name = git config --get user.name; $email = git config --get user.email; Write-Output \"name=$name\"; Write-Output \"email=$email\")",
+      "PowerShell(git init; git add -A; Write-Output \"=== Is .mcp.json staged? \\(should be EXCLUDED\\) ===\"; $staged = git diff --cached --name-only; if \\($staged -contains \".mcp.json\"\\) { Write-Output \"WARNING: .mcp.json IS STAGED!\" } else { Write-Output \"OK: .mcp.json is NOT staged \\(secret protected\\)\" }; Write-Output \"=== staged file count ===\"; \\($staged | Measure-Object\\).Count)"
+    ]
+  }
+}
