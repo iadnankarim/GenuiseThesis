@@ -43,6 +43,7 @@ export interface Stat {
 
 export interface SuccessStory {
   gradient: string;
+  image: string;
   badge: string;
   badgeBg: string;
   badgeColor: string;
@@ -153,6 +154,7 @@ export const processSteps: ProcessStep[] = [
 export const successStories: SuccessStory[] = [
   {
     gradient: "linear-gradient(135deg,#0c1c2e,#173a55)",
+    image: "https://images.pexels.com/photos/32082430/pexels-photo-32082430.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2",
     badge: "First-class",
     badgeBg: "#3fc49a",
     badgeColor: "#06231a",
@@ -162,6 +164,7 @@ export const successStories: SuccessStory[] = [
   },
   {
     gradient: "linear-gradient(135deg,#123a30,#1c6b54)",
+    image: "https://images.pexels.com/photos/8539435/pexels-photo-8539435.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2",
     badge: "Distinction",
     badgeBg: "#f0b738",
     badgeColor: "#3a2a00",
@@ -171,6 +174,7 @@ export const successStories: SuccessStory[] = [
   },
   {
     gradient: "linear-gradient(135deg,#2a2140,#4a3a6b)",
+    image: "https://images.pexels.com/photos/3862135/pexels-photo-3862135.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2",
     badge: "Grade A",
     badgeBg: "#ffffff",
     badgeColor: "#0c1c2e",

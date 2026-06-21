@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { isValidEmail } from "@/lib/pricing";
 import { serviceOptions } from "@/lib/gt-data";
+import { BrandSelect } from "./brand-select";
 
 interface Lead {
   name: string;
@@ -20,6 +21,8 @@ const guarantees = [
   "100% original, Turnitin-checked work",
   "Money-back guarantee if we miss the brief",
 ];
+
+const SERVICE_OPTIONS = serviceOptions.map((s) => ({ value: s, label: s }));
 
 export function LeadCta() {
   const [lead, setLead] = useState<Lead>({ name: "", email: "", subject: "", message: "" });
@@ -88,17 +91,15 @@ export function LeadCta() {
                     <input type="email" value={lead.email} onChange={update("email")} placeholder="you@university.ac.uk" className={fieldClass} />
                   </label>
                 </div>
-                <label className="mt-3 block">
-                  <span className={labelText}>Service needed</span>
-                  <select value={lead.subject} onChange={update("subject")} className={`${fieldClass} bg-white`}>
-                    <option value="">Choose a service…</option>
-                    {serviceOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                <div className="mt-3">
+                  <BrandSelect
+                    label="Service needed"
+                    placeholder="Choose a service…"
+                    options={SERVICE_OPTIONS}
+                    value={lead.subject}
+                    onChange={(v) => setLead((l) => ({ ...l, subject: v }))}
+                  />
+                </div>
                 <label className="mt-3 block">
                   <span className={labelText}>Brief / details</span>
                   <textarea

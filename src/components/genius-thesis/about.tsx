@@ -1,4 +1,5 @@
 import { Reveal } from "./reveal";
+import { AboutMedia } from "./about-media";
 
 const points = [
   "Vetted UK-aligned experts",
@@ -36,18 +37,7 @@ export function About() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="relative">
-            <div
-              className="flex h-[380px] w-full items-center justify-center rounded-2xl border border-gt-line text-center"
-              style={{ background: "linear-gradient(135deg,#eef3f1,#dfeae5)" }}
-            >
-              <span className="px-6 text-[14px] font-medium text-gt-muted">Workspace / team photo</span>
-            </div>
-            <div className="absolute -bottom-[18px] -left-[18px] rounded-[13px] bg-gt-navy px-5 py-4 text-white shadow-[0_18px_40px_-14px_rgba(0,0,0,0.4)]">
-              <div className="font-serif text-[26px] font-semibold">7+ years</div>
-              <div className="text-[13px] text-[#bccbd8]">supporting UK students</div>
-            </div>
-          </div>
+          <AboutMedia />
         </Reveal>
       </div>
     </section>

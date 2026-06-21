@@ -14,11 +14,14 @@ export function Process() {
           </div>
         </Reveal>
 
-        <RevealStagger className="mt-[38px] grid grid-cols-5 gap-[18px] max-[760px]:grid-cols-2 max-[520px]:grid-cols-1">
+        <RevealStagger
+          className="mt-[38px] grid grid-cols-5 gap-[18px] max-[760px]:grid-cols-2 max-[520px]:grid-cols-1"
+          itemClassName="h-full"
+        >
           {processSteps.map((step, i) => (
             <div
               key={step.title}
-              className="rounded-[14px] border border-white/10 bg-white/5 p-[22px]"
+              className="flex h-full flex-col rounded-[14px] border border-white/10 bg-white/5 p-[22px]"
             >
               <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-gt-green font-serif text-[17px] font-semibold text-white">
                 {i + 1}

@@ -2,10 +2,32 @@
 
 import { useState } from "react";
 import { calculateQuote, type Estimate, type QuoteInput } from "@/lib/pricing";
+import { BrandSelect } from "./brand-select";
 
 const fieldClass =
   "w-full rounded-[9px] border border-[#dce2e8] px-3 py-[11px] text-[14px] font-[inherit] focus:border-gt-green focus:outline-none focus:ring-[3px] focus:ring-gt-green/[0.14]";
 const labelText = "mb-[6px] block text-[13px] font-semibold text-[#3a4751]";
+
+const SERVICES = [
+  { value: "Assignment Writing", label: "Assignment writing" },
+  { value: "Essay Writing", label: "Essay writing" },
+  { value: "Dissertation Writing", label: "Dissertation writing" },
+  { value: "Thesis Writing", label: "Thesis writing" },
+  { value: "Coursework Writing", label: "Coursework writing" },
+  { value: "Project Writing", label: "Project / capstone" },
+  { value: "Editing & Proofreading", label: "Editing & proofreading" },
+];
+const LEVELS = [
+  { value: "undergrad", label: "Undergraduate" },
+  { value: "masters", label: "Master's" },
+  { value: "phd", label: "PhD" },
+];
+const DEADLINES = [
+  { value: "14", label: "14+ days" },
+  { value: "7", label: "7 days" },
+  { value: "3", label: "3 days" },
+  { value: "1", label: "24 hours" },
+];
 
 export function QuoteEstimator() {
   const [quote, setQuote] = useState<QuoteInput>({
@@ -20,8 +42,11 @@ export function QuoteEstimator() {
 
   const update =
     (field: keyof QuoteInput) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement>) =>
       setQuote((q) => ({ ...q, [field]: e.target.value }));
+
+  const setField = (field: keyof QuoteInput) => (value: string) =>
+    setQuote((q) => ({ ...q, [field]: value }));
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,28 +75,20 @@ export function QuoteEstimator() {
 
       <form onSubmit={onSubmit}>
         <div className="grid grid-cols-2 gap-3">
-          <label className="block">
-            <span className={labelText}>Service</span>
-            <select value={quote.service} onChange={update("service")} className={`${fieldClass} bg-white`}>
-              <option value="">Choose…</option>
-              <option value="Assignment Writing">Assignment writing</option>
-              <option value="Essay Writing">Essay writing</option>
-              <option value="Dissertation Writing">Dissertation writing</option>
-              <option value="Thesis Writing">Thesis writing</option>
-              <option value="Coursework Writing">Coursework writing</option>
-              <option value="Project Writing">Project / capstone</option>
-              <option value="Editing & Proofreading">Editing & proofreading</option>
-            </select>
-          </label>
-          <label className="block">
-            <span className={labelText}>Academic level</span>
-            <select value={quote.level} onChange={update("level")} className={`${fieldClass} bg-white`}>
-              <option value="">Choose…</option>
-              <option value="undergrad">Undergraduate</option>
-              <option value="masters">Master&apos;s</option>
-              <option value="phd">PhD</option>
-            </select>
-          </label>
+          <BrandSelect
+            label="Service"
+            placeholder="Choose…"
+            options={SERVICES}
+            value={quote.service}
+            onChange={setField("service")}
+          />
+          <BrandSelect
+            label="Academic level"
+            placeholder="Choose…"
+            options={LEVELS}
+            value={quote.level}
+            onChange={setField("level")}
+          />
           <label className="block">
             <span className={labelText}>Pages (≈275 wds)</span>
             <input
@@ -84,16 +101,13 @@ export function QuoteEstimator() {
               className={fieldClass}
             />
           </label>
-          <label className="block">
-            <span className={labelText}>Deadline</span>
-            <select value={quote.deadline} onChange={update("deadline")} className={`${fieldClass} bg-white`}>
-              <option value="">Choose…</option>
-              <option value="14">14+ days</option>
-              <option value="7">7 days</option>
-              <option value="3">3 days</option>
-              <option value="1">24 hours</option>
-            </select>
-          </label>
+          <BrandSelect
+            label="Deadline"
+            placeholder="Choose…"
+            options={DEADLINES}
+            value={quote.deadline}
+            onChange={setField("deadline")}
+          />
         </div>
 
         <label className="mt-3 block">
