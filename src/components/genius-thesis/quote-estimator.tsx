@@ -74,7 +74,7 @@ export function QuoteEstimator() {
       <p className="mb-4 mt-0 text-[13.5px] text-[#6b7884]">No payment or sign-up required to see your price.</p>
 
       <form onSubmit={onSubmit}>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 max-[520px]:grid-cols-1">
           <BrandSelect
             label="Service"
             placeholder="Choose…"

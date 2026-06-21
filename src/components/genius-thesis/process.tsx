@@ -15,7 +15,7 @@ export function Process() {
         </Reveal>
 
         <RevealStagger
-          className="mt-[38px] grid grid-cols-5 gap-[18px] max-[760px]:grid-cols-2 max-[520px]:grid-cols-1"
+          className="mt-[38px] grid grid-cols-5 gap-[18px] max-[980px]:grid-cols-3 max-[760px]:grid-cols-2 max-[520px]:grid-cols-1"
           itemClassName="h-full"
         >
           {processSteps.map((step, i) => (
