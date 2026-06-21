@@ -1,5 +1,4 @@
 import { ScrollProgress } from "@/components/genius-thesis/scroll-progress";
-import { TopBar } from "@/components/genius-thesis/top-bar";
 import { SiteHeader } from "@/components/genius-thesis/site-header";
 import { Hero } from "@/components/genius-thesis/hero";
 import { StatsStrip } from "@/components/genius-thesis/stats-strip";
@@ -17,7 +16,6 @@ export default function Home() {
   return (
     <div className="bg-white font-sans leading-[1.55] text-gt-ink antialiased">
       <ScrollProgress />
-      <TopBar />
       <SiteHeader />
       <main id="top">
         <Hero />

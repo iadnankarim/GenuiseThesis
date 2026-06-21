@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0c1c2e_0%,#0a1928_100%)] text-[#eaf1f7]">
       <HeroBackground />
 
-      <div className="relative mx-auto grid max-w-[1180px] grid-cols-[1.05fr_0.95fr] items-center gap-16 px-7 pb-[84px] pt-[74px] max-[980px]:grid-cols-1 max-[980px]:gap-10">
+      <div className="relative mx-auto grid max-w-[1180px] grid-cols-[1.05fr_0.95fr] items-center gap-16 px-7 pb-[84px] pt-[120px] max-[980px]:grid-cols-1 max-[980px]:gap-10">
         <div>
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-white/[0.08] px-[13px] py-[6px] text-[13px] font-semibold tracking-[0.3px] text-[#bfe6d6]">
