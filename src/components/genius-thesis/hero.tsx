@@ -1,11 +1,11 @@
+import { HeroBackground } from "./hero-background";
 import { QuoteEstimator } from "./quote-estimator";
 import { Reveal } from "./reveal";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0c1c2e_0%,#0a1928_100%)] text-[#eaf1f7]">
-      <div className="pointer-events-none absolute -right-20 -top-[120px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(21,121,92,0.30),transparent_70%)]" />
-      <div className="pointer-events-none absolute -bottom-[160px] -left-[120px] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(63,196,154,0.10),transparent_70%)]" />
+      <HeroBackground />
 
       <div className="relative mx-auto grid max-w-[1180px] grid-cols-[1.05fr_0.95fr] items-center gap-16 px-7 pb-[84px] pt-[74px] max-[980px]:grid-cols-1 max-[980px]:gap-10">
         <Reveal>

@@ -130,6 +130,25 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes gt-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gt-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -24px) scale(1.08);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
